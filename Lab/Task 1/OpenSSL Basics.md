@@ -1,4 +1,4 @@
-## Exercise 1 - Generate a Self-Signed Certificate 
+## Exercise 1 - Generate a key pair and encrypt/decrypt data.
 ![By Software:OpenSSL contributorsScreenshot:VulcanSphere - Self-taken; derivative work, Public Domain, https://commons.wikimedia.org/w/index.php?curid=125198571](UEFI_Secure_Boot_DB_certificate.png) 
 
 This first exercise will illustrate the basics of using OpenSSL to generate a private-public key pair. [OpenSSL](https://en.wikipedia.org/wiki/OpenSSL) is a software library for applications that provide secure communications over computer networks against eavesdropping, and identify the party at the other end. It is widely used by Internet servers, including the majority of HTTPS websites. 
@@ -38,7 +38,7 @@ This first exercise will illustrate the basics of using OpenSSL to generate a pr
     ```openssl rsa -in private.key -pubout -out public.key```
 
 5. Again, let's inspect the decoded contents of the public key:
-    ```openssl rsa -text -pubin -in publickey.crt -noout```
+    ```openssl rsa -text -pubin -in public.key -noout```
 
     What do you observe?
         <details> 
@@ -61,7 +61,7 @@ This first exercise will illustrate the basics of using OpenSSL to generate a pr
 
 In the folder [corrupted](./corrupted/), a message has been hidden in plain sight, containing an important reminder for today. Your task is to decipher the message.
 
-Unfortunately, it is not as easy as it seems - it is not obvious which key was used to encrypt the file! There are 4 potential candidates present, and to top it off, some of the files have been corrupted, with strings being replaced with question marks: `?` Your task boils down to the following subtasks:
+Unfortunately, it is not as easy as it seems - it is not obvious which key was used to encrypt the file! There are 4 potential candidates present, and to top it off, some of the files have been corrupted, with strings being replaced with question marks: `???` Your task boils down to the following subtasks:
 
 1. Identify the correct key 
 2. Fix any data corruption
